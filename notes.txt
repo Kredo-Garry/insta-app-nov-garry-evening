@@ -1,0 +1,68 @@
+PIVOT Table --- what is a pivot table?
+
+Example:
+
+categories table                           posts table
+----------------------                   ---------------------------------------------------------------------------      
+id                name                    id                    title
+1                Travel                   1                   Trip to maldives   (Travel - 1, Career - 5, Food - 2)
+2                Food                     2                   I like music       (Lifestyle 3, Technology - 4)
+3                Lifestyle
+4                Technology
+5                Career
+6                Movie
+
+
+category_post table (PIVOT Table)
+----------------------------------
+post_id                category_id
+   1                      1
+   1                      5
+   1                      2
+   2                      3
+   2                      4
+
+
+
+   **********************************************************************
+                                                users table
+                                                   1    John
+                                                   2    Tim
+                                                   3    Merry
+                                                   4    Will
+                                                   5    David
+   follows table
+   follower_id          following_id
+   --------------------------------
+        1                     2
+        1                     3
+        1                     5
+        2                     4
+        2                     5
+        5                     2
+        5                     1
+
+
+*******************************************
+
+Deactivate a user
+
+SoftDelete -- what is soft delete? 
+
+A soft delete work by deleting the user from the application
+but the data of that user will still be saved in the database.
+
+Soft delete work by adding a "deleted_at" colum in the database table.
+
+**************************************************************************
+
+MIDDLEWARE ? Layer of security mechanism.
+NOTE: A user cannot use the application if they are not login.
+
+Objective is to create our own middleware. Our middleware is base on "role_id = 1"
+
+role_id = 1 ---> Administrator
+role_id = 2 ---> regular user
+
+*****************************************************************************
+GATE ? It is a closure that check or determine  if the user is authorized to perform a certain action
